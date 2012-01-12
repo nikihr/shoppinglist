@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @list.title %></h2>
+<strike><%= @list.article1 %></strike><br />
+<%= @list.article2 %><br />
+<%= @list.article3 %><br />
+<%= @list.article4 %><br />
+<%= @list.article5 %><br />
+<%= check_box_tag 'article1' , false %>
+
+
+<br /><%= link_to 'Edit', edit_list_path(@list) %> |
+<%= link_to 'Back', lists_path %>

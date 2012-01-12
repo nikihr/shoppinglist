@@ -1,0 +1,20 @@
+<h2>Inköpslistor</h2>
+<%= link_to 'Skapa ny lista', new_list_path %>
+<br /><br />
+<table width="700">
+<tr align="left">
+<th>Datum </th>
+<th>Namnet på listan</th>
+<th></th>
+    <th></th>
+</tr>
+<% @lists.each do |list| %>
+    <tr>
+      <td><%= list.updated_at.strftime("%d/%m/%Y") %></td>
+      <td><%= link_to list.title, list %></td>
+      <td></td>
+      <td>
+      </td>
+    </tr>
+  <% end %>
+</table>

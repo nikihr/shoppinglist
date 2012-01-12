@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <h2>Skapa ny lista</h2>
+
+  <%= render 'form' %>
+
+  <br />
+  <%= link_to 'Tillbaka', lists_path %>
+
+<% else %>
+
+  <h2>Skapa ny lista</h2>
+  <p>Du måste <%= link_to 'logga in', new_user_session_path %> för att skapa en lista.</p>
+
+<% end %>
+

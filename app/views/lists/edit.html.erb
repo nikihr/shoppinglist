@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <h2>Redigera lista</h2>
+
+  <%= render 'form' %>
+  <br />
+  <%= link_to 'Visa listan', @list %>
+  <%= link_to 'Tillbaka', lists_path %>
+
+<% else %>
+  <h2>Redigera lista</h2>
+  <p>Du måste <%= link_to 'logga in', new_user_session_path %> för att redigera en lista.</p>
+
+<% end %>
+

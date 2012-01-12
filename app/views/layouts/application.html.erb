@@ -1,0 +1,58 @@
+<% # encoding: UTF-8 %>
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>
+  <% if user_signed_in? %>
+    Inköpslistan | <%= current_user.firstname.capitalize %>
+  <% else %>
+    Inköpslistan
+  <% end %>
+ </title>
+
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div id="container">
+  
+  <div id="logo">
+  <h1>Inköpslistan.se</h1>
+  </div>
+
+<div id="info">
+    <% if user_signed_in? %>
+      Inloggad som <%= current_user.firstname %> -
+      <%= link_to "Logga ut", destroy_user_session_path, :method => :delete %><br />
+      <%= link_to "Min Profil", edit_user_registration_path %>
+    <% else %>
+      <%= link_to "Logga in", new_user_session_path %> eller 
+      <%= link_to "Registrera", new_user_registration_path %>
+    <% end %>    
+</div>
+<div id="menu">
+<ul>
+<li><%= link_to "Startsidan", pages_index_path %></li>
+<li><%= link_to "Inköpslistor", lists_path %></li>
+<li><%= link_to "Om Inköpslistan", pages_about_path %></li>
+<li>
+</ul>
+</div>
+
+  <div class="text">
+<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </div>
+<div id="footer">
+<p><a href="mailto:info@inkopslistan.se">info@inkopslistan.se</a><br />
+Inköpslistan.se är en sida som är gratis för alla att använda, hör gärna av er med feedback och om ni har tips på hur vi kan förbättra sidan.</p>
+</div>
+</div>
+</body>
+</html>
+
